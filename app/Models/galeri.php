@@ -2,9 +2,21 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class galeri extends Model
+class Galeri extends Model
 {
-    //
+    use HasFactory;
+
+    protected $table = 'galeris';
+    protected $primaryKey = 'id_galeri';
+
+    protected $fillable = [
+        'judul',
+        'keteranngan',
+        'file',
+        'kategori',
+        'tanggal',
+    ];
 }
