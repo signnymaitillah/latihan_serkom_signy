@@ -45,11 +45,11 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-school sticky-top shadow-sm py-3">
         <div class="container">
-            <a class="navbar-brand fw-bold text-white" href="{{ url('/') }}">
-                <i class="fa-solid fa-school me-2"></i>SMPN 1 SINGAPARNA
+            <a class="navbar-brand fw-bold text-white d-flex align-items-center" href="{{ url('/') }}">
+                <img src="{{ asset('assets/images/smp.png') }}" alt="Logo SMPN 1 Singaparna" class="me-2" style="height: 35px; width: auto; object-fit: contain;">
+                <span>SMPN 1 SINGAPARNA</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -76,32 +76,23 @@
         </div>
     </nav>
 
-    <!-- ISI HALAMAN -->
     <main class="flex-grow-1">
         @yield('content')
     </main>
 
-    <!-- FOOTER -->
     <footer class="bg-school text-white pt-5 pb-3 mt-auto border-top border-4 border-light-subtle">
         <div class="container">
-            <div class="row g-4 mb-4">
-                <!-- Kolom 1: Profil Singkat -->
+            <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="d-flex align-items-center mb-3">
-                        <i class="fa-solid fa-school fa-2x me-2"></i>
+                        <img src="{{ asset('assets/images/smp.png') }}" alt="" class="me-2" style="height: 40px; width: auto; object-fit: contain;">
                         <h5 class="fw-bold mb-0">SMPN 1 SINGAPARNA</h5>
                     </div>
                     <p class="small text-white-50 leading-relaxed mb-3">
                         Mewujudkan generasi cerdas, berkarakter, berbudaya lingkungan, dan berprestasi unggul di Kabupaten Tasikmalaya.
                     </p>
-                    <div class="d-flex gap-2">
-                        <a href="#" class="social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="social-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                    </div>
                 </div>
 
-                <!-- Kolom 2: Navigasi Cepat -->
                 <div class="col-lg-2 col-md-6">
                     <h6 class="fw-bold text-uppercase mb-3 border-bottom border-white border-opacity-25 pb-2">Navigasi</h6>
                     <ul class="list-unstyled small mb-0">
@@ -113,7 +104,6 @@
                     </ul>
                 </div>
 
-                <!-- Kolom 3: Kontak -->
                 <div class="col-lg-3 col-md-6">
                     <h6 class="fw-bold text-uppercase mb-3 border-bottom border-white border-opacity-25 pb-2">Hubungi Kami</h6>
                     <ul class="list-unstyled small text-white-50 mb-0">
@@ -132,7 +122,6 @@
                     </ul>
                 </div>
 
-                <!-- Kolom 4: Jam Kerja -->
                 <div class="col-lg-3 col-md-6">
                     <h6 class="fw-bold text-uppercase mb-3 border-bottom border-white border-opacity-25 pb-2">Jam Operasional</h6>
                     <ul class="list-unstyled small text-white-50 mb-0">

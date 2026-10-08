@@ -3,12 +3,15 @@
 @section('content')
 <div class="row mt-4 align-items-center mb-3">
     <div class="col-md-12">
-        <div class="d-flex justify-content-between align-items-center">
-            <h3 class="fw-bold">Data Berita</h3>
-            <form action="{{ route('berita.index') }}" method="get" class="d-flex align-items-center gap-2">
-                <input type="search" name="search" class="form-control" placeholder="Cari Judul..." value="{{ request('search') }}" style="min-width: 200px;">
-                <button type="submit" class="btn btn-primary" style="background-color: #0d6efd; border: none;">Search</button>
-            <div class="col-md-4 text-end">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <h3 class="fw-bold mb-0">Data Berita</h3>
+            
+            <div class="d-flex align-items-center gap-2">
+                <form action="{{ route('berita.index') }}" method="get" class="d-flex align-items-center gap-2 mb-0">
+                    <input type="search" name="search" class="form-control" placeholder="Cari Judul..." value="{{ request('search') }}" style="min-width: 200px;">
+                    <button type="submit" class="btn btn-primary" style="background-color: #0d6efd; border: none;">Search</button>
+                </form>
+                
                 <a href="{{ route('berita.create') }}" class="btn btn-primary" style="background-color: #0d6efd; border: none; border-radius: 6px;"> Tambah Berita</a>
             </div>
         </div>
@@ -49,7 +52,6 @@
                         <div class="card-body p-4 d-flex flex-column justify-content-between h-100">
                             <div>
                                 <div class="d-flex align-items-center gap-2 mb-2">
-                                   
                                     @if($item->status == 'publis')
                                         <span class="badge bg-success">Publis</span>
                                     @else
@@ -64,13 +66,18 @@
                                     </small>
                                 </div>
 
-                                <h4 class="card-title fw-bold text-dark mb-3">{{ $item->judul }}</h4>
+                                <h4 class="card-title fw-bold text-dark mb-2">{{ $item->judul }}</h4>
+                                
+                                {{-- KODE YANG DITAMBAHKAN UNTUK MENAMPILKAN ISI BERITA --}}
+                                <p class="card-text text-muted mb-3">
+                                    {!! Str::limit(strip_tags($item->isi), 150, '...') !!}
+                                </p>
                             </div>
 
                             <div class="d-flex justify-content-start gap-2 mt-3 pt-3 border-top">
-                                <a href="{{ route('berita.edit', Crypt::encrypt($item->id_berita)) }}" class="btn btn-primary px-4" style="background-color: #0d6efd; border: none; border-radius: 6px;">Edit</a>
+                                <a href="{{ route('berita.edit', Crypt::encrypt($item->id_berita ?? $item->id)) }}" class="btn btn-primary px-4" style="background-color: #0d6efd; border: none; border-radius: 6px;">Edit</a>
                                 
-                                <form action="{{ route('berita.destroy', Crypt::encrypt($item->id_berita)) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus berita ini?')">
+                                <form action="{{ route('berita.destroy', Crypt::encrypt($item->id_berita ?? $item->id)) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus berita ini?')">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn text-white px-4" style="background-color: #ff769c; border: none; border-radius: 6px;">Hapus</button>

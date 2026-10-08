@@ -11,12 +11,12 @@
                 <form action="{{ route('guru.index') }}" method="get">
                     <div class="input-group">
                         <input type="search" name="search" class="form-control" placeholder="Cari NIP / Nama / Mapel" value="{{ request('search') }}" style="min-width: 200px;">
-                        <button type="submit" class="btn btn-primary" style="background-color: blue;">Search</button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #0d6efd; border: none;">Search</button>
                     </div>
                 </form>
             </div>
-           <div class="col-md-4 text-end">
-                <a href="{{ route('guru.create') }}" class="btn btn-success" style="background-color: #0d6efd;">Tambah Siswa</a>
+            <div class="col-md-4 text-end">
+                <a href="{{ route('guru.create') }}" class="btn btn-primary" style="background-color: #0d6efd; border: none; border-radius: 6px;">Tambah Guru</a>
             </div>
         </div>
     </div>
@@ -25,8 +25,9 @@
 <hr>
 
 @if(session('success'))
-    <div class="alert alert-success">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
 
@@ -36,7 +37,7 @@
             <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center">
                 
                 <div style="height: 280px; overflow: hidden; background-color: #f8f9fa;">
-                    @if($item->foto)
+                    @if($item->foto && file_exists(public_path('uploads/guru/' . $item->foto)))
                         <img src="{{ asset('uploads/guru/' . $item->foto) }}" 
                              alt="{{ $item->nama_guru }}" 
                              class="w-100 h-100" 
@@ -53,16 +54,16 @@
                     <div>
                         <h5 class="fw-bold text-dark mb-1" style="font-size: 1.1rem;">{{ $item->nama_guru }}</h5>
                         <p class="text-muted small mb-0">{{ $item->mapel }}</p>
-                        <small class="text-secondary d-block mt-1" style="font-size: 0.8rem;">NIP: {{ $item->nip }}</small>
+                        <small class="text-secondary d-block mt-1" style="font-size: 0.8rem;">NIP: {{ $item->nip ?? '-' }}</small>
                     </div>
 
-                    <div class="d-flex justify-content-center gap-2 mt-3">
-                        <a href="{{ route('guru.edit', Crypt::encrypt($item->id_guru)) }}" class="btn btn-warning btn-sm" style="background-color: #0d6efd;">Edit</a>
+                    <div class="d-flex justify-content-center gap-2 mt-3 pt-2 border-top">
+                        <a href="{{ route('guru.edit', Crypt::encrypt($item->id_guru ?? $item->id)) }}" class="btn btn-primary btn-sm px-3" style="background-color: #0d6efd; border: none; border-radius: 6px;">Edit</a>
                         
-                        <form action="{{ route('guru.destroy', Crypt::encrypt($item->id_guru)) }}" method="post" class="d-inline">
+                        <form action="{{ route('guru.destroy', Crypt::encrypt($item->id_guru ?? $item->id)) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data guru ini?')">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="btn btn-sm btn-danger px-3" onclick="return confirm('Yakin ingin menghapus data guru ini?')">Hapus</button>
+                            <button type="submit" class="btn btn-sm text-white px-3" style="background-color: #ff769c; border: none; border-radius: 6px;">Hapus</button>
                         </form>
                     </div>
                 </div>
@@ -74,9 +75,5 @@
             <p class="text-muted fs-5">Data guru belum tersedia.</p>
         </div>
     @endforelse
-</div>
-
-<div class="d-flex justify-content-end mt-4">
-    {{ $gurus->links() }}
 </div>
 @endsection

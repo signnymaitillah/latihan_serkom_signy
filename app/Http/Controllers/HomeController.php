@@ -14,12 +14,14 @@ class HomeController extends Controller
     {
         $gurus = Guru::all();
         $siswa = Siswa::all();
-        $berita = Berita::latest()->get();
+
+        $berita = Berita::where('status', 'publis')->latest('tanggal')->get();
+
         $ekstrakulikuler = Ekstrakulikuler::all();
 
         $totalSiswa  = Siswa::count();
         $totalGuru   = $gurus->count();
-        $totalBerita = $berita->count();
+        $totalBerita = Berita::where('status', 'publis')->count();
         $totalEkskul = $ekstrakulikuler->count();
 
         return view('landing.index', compact(
@@ -34,21 +36,25 @@ class HomeController extends Controller
         ));
     }
 
-    // Method baru untuk mengambil data detail 1 guru
+   
     public function showGuru($id)
     {
         $guru = Guru::findOrFail($id);
 
         return view('landing.guru.detail', compact('guru'));
     }
-        public function showBerita($id)
+
+    public function showBerita($id)
     {
-        $berita = Berita::findOrFail($id);
+        $berita = Berita::where('status', 'publis')->findOrFail($id);
+
         return view('landing.berita.detail', compact('berita'));
     }
-        public function showEkskul($id)
+
+    public function showEkskul($id)
     {
         $ekskul = Ekstrakulikuler::findOrFail($id);
+
         return view('landing.ekstrakulikuler.detail', compact('ekskul'));
     }
 }

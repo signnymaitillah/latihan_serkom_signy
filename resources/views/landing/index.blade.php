@@ -3,7 +3,6 @@
 @section('title', 'Beranda - SMPN 1 Singaparna')
 
 @section('content')
-    <!-- HERO BANNER -->
     <div id="beranda" class="position-relative mb-4">
         <img src="{{ asset('assets/images/smp.jpg') }}" class="d-block w-100" style="height: 400px; object-fit: cover; filter: brightness(55%);" alt="SMPN 1 Singaparna">
         <div class="position-absolute top-50 start-50 translate-middle text-center w-100 px-3">
@@ -13,7 +12,6 @@
         </div>
     </div>
 
-    <!-- STATISTIK RINGKAS -->
     <section class="py-4 bg-school-light border-bottom border-top">
         <div class="container">
             <div class="row text-center g-3">
@@ -45,7 +43,6 @@
         </div>
     </section>
 
-    <!-- PROFIL & SAMBUTAN -->
     <section id="profil" class="py-5">
         <div class="container py-2">
             <div class="row align-items-center g-4">
@@ -70,7 +67,6 @@
         </div>
     </section>
 
-    <!-- DESKRIPSI SEKOLAH, VISI & MISI -->
     <section id="visi-misi" class="py-5 bg-light">
         <div class="container">
             <div class="card border-0 shadow-sm p-4 p-md-5 rounded-4 bg-white">
@@ -124,7 +120,6 @@
         </div>
     </section>
 
-    <!-- GURU & STAF -->
     <section id="guru" class="py-5">
         <div class="container">
             <div class="d-flex justify-content-between align-items-end mb-4">
@@ -175,7 +170,6 @@
         </div>
     </section>
 
-    <!-- EKSTRAKURIKULER -->
     <section id="ekskul" class="py-5 bg-light">
         <div class="container">
             <div class="d-flex justify-content-between align-items-end mb-4">
@@ -229,7 +223,6 @@
         </div>
     </section>
 
-    <!-- BERITA & ARTIKEL -->
     <section id="berita" class="py-5">
         <div class="container">
             <div class="d-flex justify-content-between align-items-end mb-4">
