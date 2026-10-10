@@ -189,7 +189,6 @@
                     <div class="col-12 col-sm-6 col-md-3">
                         <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden text-center p-2 d-flex flex-column justify-content-between">
                             <div>
-                                {{-- Bingkai Gambar Proporsional --}}
                                 <div class="rounded-3 overflow-hidden bg-light d-flex align-items-center justify-content-center" style="height: 180px;">
                                     @if(!empty($ekskul->gambar) && file_exists(public_path('uploads/ekskul/' . $ekskul->gambar)))
                                         <img src="{{ asset('uploads/ekskul/' . $ekskul->gambar) }}" alt="{{ $ekskul->nama_eskul }}" class="w-100 h-100 object-fit-cover">
@@ -202,7 +201,6 @@
                                     @endif
                                 </div>
 
-                                {{-- Informasi Ekskul --}}
                                 <div class="card-body p-2 mt-2">
                                     <h5 class="fw-bold text-school mb-1 text-truncate">{{ $ekskul->nama_eskul ?? $ekskul->nama_ekskul }}</h5>
                                 </div>
@@ -242,7 +240,6 @@
                     <div class="col-12 col-sm-6 col-md-3">
                         <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden p-2 d-flex flex-column justify-content-between">
                             <div>
-                                {{-- Bingkai Gambar Fixed Height --}}
                                 <div class="rounded-3 overflow-hidden bg-light d-flex align-items-center justify-content-center" style="height: 180px;">
                                     @if(!empty($item->gambar) && file_exists(public_path('uploads/berita/' . $item->gambar)))
                                         <img src="{{ asset('uploads/berita/' . $item->gambar) }}" alt="{{ $item->judul }}" class="w-100 h-100 object-fit-cover">
@@ -255,7 +252,6 @@
                                     @endif
                                 </div>
 
-                                {{-- Isi Informasi Berita --}}
                                 <div class="card-body p-2 mt-2">
                                     <small class="text-muted d-block mb-1">
                                         <i class="fa-solid fa-calendar-day me-1 text-primary"></i>
@@ -280,4 +276,53 @@
             </div>
         </div>
     </section>
+
+<section id="galeri" class="py-5 bg-light">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h6 class="text-primary fw-bold text-uppercase mb-1">Dokumentasi</h6>
+                <h2 class="fw-bold text-school mb-0">Galeri Kegiatan</h2>
+            </div>
+            <a href="{{ route('landing.galeri') }}" class="btn btn-outline-primary rounded-pill btn-sm px-3">
+                Lihat Semua <i class="fa-solid fa-arrow-right ms-1"></i>
+            </a>
+        </div>
+
+        <div class="row g-3">
+            @forelse(collect($galeri ?? $galeris ?? [])->take(4) as $item)
+                @php
+                    $file = $item->foto ?? $item->gambar ?? $item->file;
+                    $path = $file ? (file_exists(public_path('uploads/galeri/'.$file)) ? asset('uploads/galeri/'.$file) : asset('storage/'.$file)) : '';
+                    $isVideo = in_array(pathinfo($file, PATHINFO_EXTENSION), ['mp4', 'mkv', 'avi', 'mov']) || strtolower($item->kategori ?? '') == 'video';
+                @endphp
+                <div class="col-12 col-sm-6 col-md-3">
+                    <a href="{{ route('landing.galeri.show', $item->id_galeri ?? $item->id) }}" class="text-decoration-none d-block h-100">
+                        <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden p-2 bg-white">
+                            <div class="rounded-3 overflow-hidden bg-light position-relative d-flex align-items-center justify-content-center" style="height: 180px;">
+                                @if($path)
+                                    @if($isVideo)
+                                        <video class="w-100 h-100 object-fit-cover"><source src="{{ $path }}"></video>
+                                        <div class="position-absolute w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-25 text-white">
+                                            <i class="fa-solid fa-play-circle fa-2x"></i>
+                                        </div>
+                                    @else
+                                        <img src="{{ $path }}" class="w-100 h-100 object-fit-cover" alt="Galeri">
+                                    @endif
+                                @else
+                                    <i class="fa-solid fa-images fa-3x text-primary"></i>
+                                @endif
+                            </div>
+                            <div class="card-body p-2 text-center">
+                                <h6 class="fw-bold text-school mb-0 text-truncate">{{ $item->judul ?? 'Dokumentasi' }}</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @empty
+                <div class="col-12"><div class="alert alert-info text-center">Belum ada foto galeri.</div></div>
+            @endforelse
+        </div>
+    </div>
+</section>
 @endsection

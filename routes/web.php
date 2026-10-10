@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\DashboardController;
 use App\Models\Berita;
 use App\Models\Ekstrakulikuler;
 use App\Models\Guru;
+use App\Models\Galeri;
 
 Route::get('/', [HomeController::class, 'index'])->name('landing.index');
 Route::view('/profil', 'landing.profil')->name('landing.profil');
@@ -31,10 +33,14 @@ Route::get('/berita-sekolah', function () {
     return view('landing.berita.berita', ['berita' => Berita::where('status', 'publis')->latest()->get()]);
 })->name('landing.berita');
 
-Route::get('/guru/{id}', [HomeController::class, 'showGuru'])->name('landing.guru.show');
-Route::get('/ekstrakulikuler/{id}', [HomeController::class, 'showEkskul'])->name('landing.ekskul.show');
-Route::get('/detail-berita/{id}', [HomeController::class, 'showBerita'])->name('landing.berita.show');
+Route::get('/galeri-sekolah', function () {
+    return view('landing.galeri.galeri', ['galeri' => Galeri::latest()->get()]);
+})->name('landing.galeri');
 
+Route::get('/detail-guru/{id}', [HomeController::class, 'showGuru'])->name('landing.guru.show');
+Route::get('/detail-ekstrakulikuler/{id}', [HomeController::class, 'showEkskul'])->name('landing.ekskul.show');
+Route::get('/detail-berita/{id}', [HomeController::class, 'showBerita'])->name('landing.berita.show');
+Route::get('/detail-galeri/{id}', [HomeController::class, 'showGaleri'])->name('landing.galeri.show'); // <-- Tambahkan baris ini
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->name('login.post');

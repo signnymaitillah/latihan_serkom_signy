@@ -34,17 +34,6 @@ class GaleriController extends Controller
             'kategori'    => 'required|in:Foto,Video',
             'tanggal'     => 'required|date',
             'file'        => 'required|file|mimes:jpg,jpeg,png,mp4,mkv|max:20480',
-        ], [
-            'judul.required'       => 'Judul galeri wajib diisi.',
-            'judul.max'            => 'Judul galeri maksimal 50 karakter.',
-            'judul.unique'         => 'Judul galeri sudah ada, silakan gunakan judul lain.',
-            'keteranngan.required' => 'Keterangan galeri wajib diisi.',
-            'kategori.required'    => 'Kategori wajib dipilih.',
-            'kategori.in'          => 'Kategori tidak valid.',
-            'tanggal.required'     => 'Tanggal galeri wajib diisi.',
-            'file.required'        => 'File media wajib diunggah.',
-            'file.mimes'           => 'Format file harus berupa jpg, jpeg, png, mp4, atau mkv.',
-            'file.max'             => 'Ukuran file maksimal 20MB.',
         ]);
 
         $fileName = null;
@@ -119,7 +108,7 @@ class GaleriController extends Controller
 
         $galeri->update([
             'judul'       => $request->judul,
-            'keteranngan' => $request->keteranngan,
+            'keterangan' => $request->keterangan,
             'kategori'    => $request->kategori,
             'tanggal'     => $request->tanggal,
             'file'        => $fileName,

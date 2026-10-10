@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Str;
 
 class BeritaController extends Controller
 {
@@ -14,7 +15,6 @@ class BeritaController extends Controller
     {
         $query = Berita::with('user')->latest('tanggal');
 
-        // Fitur Search Berita
         if ($request->has('search') && $request->search != '') {
             $search = $request->search;
             $query->where(function($q) use ($search) {
@@ -28,7 +28,6 @@ class BeritaController extends Controller
         return view('berita.index', compact('berita'));
     }
 
-    // --- TAMBAHKAN METHOD CREATE DI SINI ---
     public function create()
     {
         return view('berita.create');
@@ -36,12 +35,14 @@ class BeritaController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
             'judul'   => 'required|max:50|unique:beritas,judul',
             'isi'     => 'required',
             'tanggal' => 'required|date',
             'status'  => 'required|in:draf,publis',
             'gambar'  => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'slug'  => 'required|unique:beritas,slug',
         ]);
 
         $namaGambar = null;

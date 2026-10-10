@@ -7,6 +7,7 @@ use App\Models\Guru;
 use App\Models\Berita;
 use App\Models\Ekstrakulikuler;
 use App\Models\Siswa;
+use App\Models\Galeri;
 
 class HomeController extends Controller
 {
@@ -19,6 +20,8 @@ class HomeController extends Controller
 
         $ekstrakulikuler = Ekstrakulikuler::all();
 
+        $galeri = Galeri::latest()->get(); 
+
         $totalSiswa  = Siswa::count();
         $totalGuru   = $gurus->count();
         $totalBerita = Berita::where('status', 'publis')->count();
@@ -29,6 +32,7 @@ class HomeController extends Controller
             'siswa',
             'berita',
             'ekstrakulikuler',
+            'galeri',
             'totalSiswa',
             'totalGuru',
             'totalBerita',
@@ -36,25 +40,33 @@ class HomeController extends Controller
         ));
     }
 
-   
-    public function showGuru($id)
+   public function showGuru($id)
     {
-        $guru = Guru::findOrFail($id);
+        // Langsung cari berdasarkan id_guru atau biarkan Eloquent mencari via Model Guru
+        $guru = Guru::where('id_guru', $id)->firstOrFail();
 
         return view('landing.guru.detail', compact('guru'));
     }
-
-    public function showBerita($id)
+   public function showBerita($id)
     {
-        $berita = Berita::where('status', 'publis')->findOrFail($id);
+        $berita = Berita::where('status', 'publis')
+                        ->where('id_berita', $id)
+                        ->firstOrFail();
 
         return view('landing.berita.detail', compact('berita'));
     }
 
-    public function showEkskul($id)
+   public function showEkskul($id)
     {
-        $ekskul = Ekstrakulikuler::findOrFail($id);
+        // Menggunakan instance model agar Eloquent mencari sesuai Primary Key tabel secara otomatis
+        $ekskul = (new Ekstrakulikuler)->newQuery()->findOrFail($id);
 
         return view('landing.ekstrakulikuler.detail', compact('ekskul'));
+    }
+    public function showGaleri($id)
+    {
+        $galeri = Galeri::findOrFail($id);
+
+        return view('landing.galeri.detail', compact('galeri'));
     }
 }

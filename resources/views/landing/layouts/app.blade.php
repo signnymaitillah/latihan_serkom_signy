@@ -71,6 +71,10 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('berita-sekolah*') ? 'text-white fw-bold active' : 'text-white-50' }}" href="{{ url('/berita-sekolah') }}">Berita</a>
                     </li>
+                    {{-- Menu Galeri Tambahan --}}
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('galeri-sekolah*') ? 'text-white fw-bold active' : 'text-white-50' }}" href="{{ route('landing.galeri') }}">Galeri</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -101,6 +105,8 @@
                         <li class="mb-2"><a href="{{ url('/guru-staf') }}" class="footer-link"><i class="fa-solid fa-angle-right me-1 small"></i> Guru & Staf</a></li>
                         <li class="mb-2"><a href="{{ url('/ekstrakulikuler-sekolah') }}" class="footer-link"><i class="fa-solid fa-angle-right me-1 small"></i> Ekstrakurikuler</a></li>
                         <li class="mb-2"><a href="{{ url('/berita-sekolah') }}" class="footer-link"><i class="fa-solid fa-angle-right me-1 small"></i> Berita</a></li>
+                        {{-- Link Galeri di Footer --}}
+                        <li class="mb-2"><a href="{{ route('landing.galeri') }}" class="footer-link"><i class="fa-solid fa-angle-right me-1 small"></i> Galeri</a></li>
                     </ul>
                 </div>
 
