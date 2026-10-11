@@ -71,7 +71,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('berita-sekolah*') ? 'text-white fw-bold active' : 'text-white-50' }}" href="{{ url('/berita-sekolah') }}">Berita</a>
                     </li>
-                    {{-- Menu Galeri Tambahan --}}
+
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('galeri-sekolah*') ? 'text-white fw-bold active' : 'text-white-50' }}" href="{{ route('landing.galeri') }}">Galeri</a>
                     </li>

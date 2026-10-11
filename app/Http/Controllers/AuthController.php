@@ -7,13 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    // Menampilkan Tampilan Login
     public function showLogin()
     {
         return view('auth.login');
     }
 
-    // Proses Autentikasi Menggunakan Username
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -31,7 +29,6 @@ class AuthController extends Controller
         ])->onlyInput('username');
     }
 
-    // Proses Logout
     public function logout(Request $request)
     {
         Auth::logout();

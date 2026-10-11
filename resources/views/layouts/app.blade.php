@@ -118,12 +118,12 @@
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                             <div class="dropdown-divider"></div>
                             
-                            <form action="{{ route('logout') }}" method="POST" class="m-0 p-0">
-                                @csrf
-                                <button type="submit" class="dropdown-item text-danger border-0 bg-transparent w-100 text-start">
-                                    <i class="mdi mdi-logout me-2 text-danger"></i> Logout
-                                </button>
-                            </form>
+                           <form action="{{ route('logout') }}" method="POST" class="m-0 p-0" onsubmit="return confirm('Apakah Anda yakin ingin keluar dari sistem?');">
+                            @csrf
+                            <button type="submit" class="dropdown-item text-danger border-0 bg-transparent w-100 text-start">
+                                <i class="mdi mdi-logout me-2 text-danger"></i> Logout
+                            </button>
+                        </form>
                         </div>
                     </li>
                 </ul>

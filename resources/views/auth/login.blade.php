@@ -24,9 +24,9 @@
             <h3 class="card-title text-center fw-bold mb-2">Login System</h3>
             <p class="text-muted text-center mb-4">Website Profil Sekolah</p>
 
-            @if(session('error'))
+            @if ($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('error') }}
+                    {{ $errors->first('username') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
@@ -34,13 +34,12 @@
             <form action="{{ route('login.post') }}" method="POST">
                 @csrf
 
-                <!-- Input Username -->
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" id="username" class="form-control" placeholder="masukkan username..." required autofocus>
+                    <!-- Ditambahkan old('username') agar teks tidak hilang saat salah login -->
+                    <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" placeholder="masukkan username..." required autofocus>
                 </div>
 
-                <!-- Input Password -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="masukkan password..." required>
