@@ -5,7 +5,7 @@
 @section('content')
 <div class="container py-5">
     <div class="text-center mb-5">
-        <h2 class="fw-bold text-primary">Profil SMPN 1 Singaparna</h2>
+        <h2 class="fw-bold text-school">Profil SMPN 1 Singaparna</h2>
         <p class="text-muted small">Mengenal Lebih Dekat Sekolah, Visi, dan Misi Kami</p>
     </div>
 
@@ -34,8 +34,8 @@
 
     <div class="row g-4">
         <div class="col-md-5">
-            <div class="p-4 bg-light rounded-3 border-start border-4 border-primary h-100">
-                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-eye me-2"></i>Visi Sekolah</h5>
+            <div class="p-4 bg-light rounded-3 border-start border-4 border-school h-100">
+                <h5 class="fw-bold text-school mb-3"><i class="fa-solid fa-eye me-2"></i>Visi Sekolah</h5>
                 <p class="fst-italic text-secondary mb-0 leading-relaxed">
                     "Terwujudnya Peserta Didik yang Bertaqwa, Berprestasi, Berkarakter Mulia, dan Berwawasan Lingkungan."
                 </p>
@@ -44,7 +44,7 @@
 
         <div class="col-md-7">
             <div class="p-4 bg-light rounded-3 h-100">
-                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-list-check me-2"></i>Misi Sekolah</h5>
+                <h5 class="fw-bold text-school mb-3"><i class="fa-solid fa-list-check me-2"></i>Misi Sekolah</h5>
                 <ol class="text-secondary mb-0 ps-3">
                     <li class="mb-2">Menumbuhkan keimanan dan ketaqwaan kepada Tuhan Yang Maha Esa melalui kegiatan keagamaan secara rutin.</li>
                     <li class="mb-2">Melaksanakan pembelajaran yang efektif, inovatif, dan berorientasi pada pengembangan potensi siswa secara optimal.</li>

@@ -63,5 +63,3 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('galeri', GaleriController::class);
 });
 
-Route::get('/uji-kompetensi', [UjikomController::class, 'index'])->name('landing.ujikom');
-Route::post('/uji-kompetensi', [UjikomController::class, 'hitung'])->name('landing.ujikom.hitung');

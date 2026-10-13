@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'SMPN 1 Singaparna')</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendors/font-awesome/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendors/ti-icons/css/themify-icons.css') }}" rel="stylesheet">
 
     <style>
         :root { --primary-blue: #0d47a1; }
@@ -70,19 +72,13 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('berita-sekolah*') ? 'text-white fw-bold active' : 'text-white-50' }}" href="{{ url('/berita-sekolah') }}">Berita</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('galeri-sekolah*') ? 'text-white fw-bold active' : 'text-white-50' }}" href="{{ route('landing.galeri') }}">Galeri</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('login*') ? 'text-white fw-bold active' : 'text-white-50' }}" href="{{ route('login') }}">Login</a>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('landing.ujikom') ? 'active' : '' }}" href="{{ route('landing.ujikom') }}">Ujikom</a>
-                    </li>
-                    </ul>
+                </ul>
             </div>
         </div>
     </nav>
@@ -113,7 +109,6 @@
                         <li class="mb-2"><a href="{{ url('/ekstrakulikuler-sekolah') }}" class="footer-link"><i class="fa-solid fa-angle-right me-1 small"></i> Ekstrakurikuler</a></li>
                         <li class="mb-2"><a href="{{ url('/berita-sekolah') }}" class="footer-link"><i class="fa-solid fa-angle-right me-1 small"></i> Berita</a></li>
                         <li class="mb-2"><a href="{{ route('landing.galeri') }}" class="footer-link"><i class="fa-solid fa-angle-right me-1 small"></i> Galeri</a></li>
-                        
                     </ul>
                 </div>
 
@@ -150,7 +145,7 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
     @stack('scripts')
 </body>
 </html>

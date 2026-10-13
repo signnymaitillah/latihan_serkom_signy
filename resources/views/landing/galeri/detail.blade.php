@@ -25,7 +25,6 @@
                     $isVideo = in_array(strtolower($extension), ['mp4', 'mkv', 'avi', 'mov']) || (isset($galeri->kategori) && strtolower($galeri->kategori) == 'video');
                 @endphp
 
-                {{-- Tampilan Media (Foto / Video) --}}
                 <div class="mb-4 text-center">
                     <div class="rounded-4 overflow-hidden bg-dark d-flex align-items-center justify-content-center shadow-sm w-100" style="max-height: 400px; min-height: 300px;">
                         @if(!empty($filePath))
@@ -46,9 +45,9 @@
                     </div>
                 </div>
 
-                {{-- Informasi & Keterangan Galeri --}}
+            
                 <div>
-                    <span class="badge bg-primary-subtle text-primary fw-bold text-uppercase px-3 py-2 rounded-pill mb-2">
+                    <span class="badge bg-primary-subtle text-school fw-bold text-uppercase px-3 py-2 rounded-pill mb-2">
                         <i class="fa-solid fa-images me-1"></i> Dokumentasi Sekolah
                     </span>
 

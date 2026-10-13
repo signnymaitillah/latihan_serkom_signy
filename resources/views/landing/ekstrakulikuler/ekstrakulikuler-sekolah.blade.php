@@ -5,7 +5,7 @@
 @section('content')
 <div class="container py-5">
     <div class="text-center mb-5">
-        <h2 class="fw-bold text-primary">Ekstrakurikuler</h2>
+        <h2 class="fw-bold text-school">Ekstrakurikuler</h2>
         <p class="text-muted">Wadah Pengembangan Bakat dan Minat Siswa SMPN 1 Singaparna</p>
     </div>
 
@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="card-body p-3">
-                            <h5 class="fw-bold text-primary mb-1">{{ $ekskul->nama_eskul }}</h5>
+                            <h5 class="fw-bold text-school mb-1">{{ $ekskul->nama_eskul }}</h5>
                         </div>
                     </div>
 

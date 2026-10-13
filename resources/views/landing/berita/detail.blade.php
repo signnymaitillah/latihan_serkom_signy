@@ -7,8 +7,8 @@
     <div class="row justify-content-center">
         <div class="col-md-9">
             <div class="card border-0 shadow-sm p-4 rounded-3">
-                <span class="text-primary fw-bold text-uppercase small" style="letter-spacing: 1px;">BERITA SEKOLAH</span>
-                <h2 class="fw-bold text-primary mt-1 mb-2">{{ $berita->judul }}</h2>
+                <span class="text-school fw-bold text-uppercase small" style="letter-spacing: 1px;">BERITA SEKOLAH</span>
+                <h2 class="fw-bold text-school mt-1 mb-2">{{ $berita->judul }}</h2>
                 <p class="text-muted small mb-4">
                     <i class="fa-regular fa-calendar me-1"></i> {{ \Carbon\Carbon::parse($berita->created_at)->translatedFormat('d F Y') }}
                 </p>

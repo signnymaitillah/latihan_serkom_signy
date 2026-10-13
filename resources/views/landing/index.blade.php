@@ -4,10 +4,10 @@
 
 @section('content')
     <div id="beranda" class="position-relative mb-4">
-        <img src="{{ asset('assets/images/smp.jpg') }}" class="d-block w-100" style="height: 400px; object-fit: cover; filter: brightness(55%);" alt="SMPN 1 Singaparna">
+        <img src="{{ asset('assets/images/smp.jpg') }}" class="d-block w-100" style="height: 400px; object-fit: cover; filter: brightness(65%);" alt="SMPN 1 Singaparna">
         <div class="position-absolute top-50 start-50 translate-middle text-center w-100 px-3">
-            <h1 class="display-5 fw-bold text-white mb-2">Selamat Datang</h1>
-            <h1 class="display-5 fw-bold text-white mb-2">SMPN 1 Singaparna</h1>
+            <h1 class="display-1 fw-bold text-white mb-2">Selamat Datang</h1>
+            <h1 class="display-3 fw-bold text-white mb-2">SMPN 1 Singaparna</h1>
             <p class="lead text-light col-md-8 mx-auto">Mewujudkan Generasi Cerdas, Berkarakter, Berbudaya Lingkungan, dan Berprestasi Unggul.</p>
         </div>
     </div>
@@ -49,12 +49,11 @@
                 <div class="col-md-5 text-center">
                     <div class="p-3 bg-white rounded shadow-sm border border-primary border-opacity-25">
                         <img src="{{ asset('assets/images/kepalasekolah.png') }}" class="img-fluid rounded" alt="Kepala Sekolah">
-                        <h5 class="fw-bold text-school mt-3 mb-1">Drs. Jamaludin Malik, M.M</h5>
+                        <h5 class="fw-bold text-school mt-9 mb-1">Drs. Jamaludin Malik, M.M</h5>
                         <span class="badge bg-primary rounded-pill">Kepala SMPN 1 Singaparna</span>
                     </div>
                 </div>
                 <div class="col-md-7">
-                    <!-- <h6 class="text-primary fw-bold text-uppercase">Sambutan Kepala Sekolah</h6> -->
                     <h2 class="fw-bold text-school mb-3">Sambutan Kepala Sekolah</h2>
                     <h3 class="fw-bold mb-3">Drs. Jamaludin Malik, M.M</h3>
                     <p class="text-secondary mb-3">
@@ -75,7 +74,7 @@
         <div class="container">
             <div class="card border-0 shadow-sm p-4 p-md-5 rounded-4 bg-white">
                 <div class="text-center mb-5">
-                    <span class="badge bg-primary-subtle text-primary fw-bold text-uppercase px-3 py-2 rounded-pill mb-2">Tentang Kami</span>
+                    <span class="badge bg-primary-subtle text-school fw-bold text-uppercase px-3 py-2 rounded-pill mb-2">Tentang Kami</span>
                     <h2 class="fw-bold text-school mb-3">Tentang SMPN 1 Singaparna</h2>
                     <p class="text-secondary leading-relaxed col-lg-10 mx-auto mb-0">
                         SMPN 1 Singaparna merupakan salah satu sekolah menengah pertama negeri rujukan di Kabupaten Tasikmalaya. Berdiri di lingkungan yang asri dan kondusif, sekolah kami didukung oleh tenaga pendidik yang profesional serta fasilitas belajar modern untuk membentuk lingkungan belajar yang efektif, bermakna, dan menyenangkan bagi peserta didik.
@@ -128,7 +127,7 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-end mb-4">
                 <div>
-                    <h6 class="text-primary fw-bold text-uppercase mb-1">Tenaga Pendidik</h6>
+                    <h6 class="text-school fw-bold text-uppercase mb-1">Tenaga Pendidik</h6>
                     <h2 class="fw-bold text-school mb-0">Guru & Staf Pengajar</h2>
                 </div>
                 <div>
@@ -178,7 +177,7 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-end mb-4">
                 <div>
-                    <h6 class="text-primary fw-bold text-uppercase mb-1">Pengembangan Diri</h6>
+                    <h6 class="text-school fw-bold text-uppercase mb-1">Pengembangan Diri</h6>
                     <h2 class="fw-bold text-school mb-0">Ekstrakurikuler</h2>
                 </div>
                 <div>
@@ -229,7 +228,7 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-end mb-4">
                 <div>
-                    <h6 class="text-primary fw-bold text-uppercase mb-1">Informasi Terkini</h6>
+                    <h6 class="text-school fw-bold text-uppercase mb-1">Informasi Terkini</h6>
                     <h2 class="fw-bold text-school mb-0">Berita & Artikel</h2>
                 </div>
                 <div>
@@ -285,7 +284,7 @@
     <div class="container">
         <div class="d-flex justify-content-between align-items-end mb-4">
             <div>
-                <h6 class="text-primary fw-bold text-uppercase mb-1">Dokumentasi</h6>
+                <h6 class="text-school fw-bold text-uppercase mb-1">Dokumentasi</h6>
                 <h2 class="fw-bold text-school mb-0">Galeri Kegiatan</h2>
             </div>
             <a href="{{ route('landing.galeri') }}" class="btn btn-outline-primary rounded-pill btn-sm px-3">
