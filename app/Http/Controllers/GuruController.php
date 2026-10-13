@@ -58,14 +58,26 @@ class GuruController extends Controller
 
     public function edit($id)
     {
-        $idDecrypted = Crypt::decrypt($id);
+        // Pengaman dekripsi ID agar aman dari error
+        try {
+            $idDecrypted = Crypt::decrypt($id);
+        } catch (DecryptException $e) {
+            abort(404);
+        }
+
         $guru = Guru::findOrFail($idDecrypted);
         return view('guru.edit', compact('guru'));
     }
 
     public function update(Request $request, $id)
     {
-        $idDecrypted = Crypt::decrypt($id);
+        // Pengaman dekripsi ID agar aman dari error
+        try {
+            $idDecrypted = Crypt::decrypt($id);
+        } catch (DecryptException $e) {
+            abort(404);
+        }
+
         $guru = Guru::findOrFail($idDecrypted);
 
         $request->validate([
@@ -99,7 +111,12 @@ class GuruController extends Controller
 
     public function destroy($id)
     {
-        $idDecrypted = Crypt::decrypt($id);
+        try {
+            $idDecrypted = Crypt::decrypt($id);
+        } catch (DecryptException $e) {
+            abort(404);
+        }
+
         $guru = Guru::findOrFail($idDecrypted);
 
         if ($guru->foto && file_exists(public_path('uploads/guru/' . $guru->foto))) {

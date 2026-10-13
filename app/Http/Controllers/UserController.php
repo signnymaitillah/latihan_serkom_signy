@@ -28,7 +28,7 @@ class UserController extends Controller
         ]);
 
         User::create([
-            'nama'     => $request->username, // <-- Wajib diisi! Otomatis disamakan dengan username
+            'nama'     => $request->username, 
             'username' => $request->username,
             'password' => bcrypt($request->password),
             'role'     => strtolower($request->role),
@@ -53,7 +53,7 @@ class UserController extends Controller
         ]);
 
         $data = [
-            'nama'     => $request->username, // Update nama juga mengikuti username
+            'nama'     => $request->username, 
             'username' => $request->username,
             'role'     => strtolower($request->role),
         ];

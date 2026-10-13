@@ -12,7 +12,6 @@
             <form action="{{ route('galeri.update', Crypt::encrypt($galeri->id_galeri)) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-
                 
                 <div class="mb-3">
                     <label for="judul" class="form-label fw-bold">Judul Galeri</label>

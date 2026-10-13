@@ -11,6 +11,7 @@ use App\Http\Controllers\EkstrakulikulerController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UjikomController;
 use App\Models\Berita;
 use App\Models\Ekstrakulikuler;
 use App\Models\Guru;
@@ -40,7 +41,7 @@ Route::get('/galeri-sekolah', function () {
 Route::get('/detail-guru/{id}', [HomeController::class, 'showGuru'])->name('landing.guru.show');
 Route::get('/detail-ekstrakulikuler/{id}', [HomeController::class, 'showEkskul'])->name('landing.ekskul.show');
 Route::get('/detail-berita/{id}', [HomeController::class, 'showBerita'])->name('landing.berita.show');
-Route::get('/detail-galeri/{id}', [HomeController::class, 'showGaleri'])->name('landing.galeri.show'); // <-- Tambahkan baris ini
+Route::get('/detail-galeri/{id}', [HomeController::class, 'showGaleri'])->name('landing.galeri.show'); 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->name('login.post');
@@ -61,3 +62,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('berita', BeritaController::class);
     Route::resource('galeri', GaleriController::class);
 });
+
+Route::get('/uji-kompetensi', [UjikomController::class, 'index'])->name('landing.ujikom');
+Route::post('/uji-kompetensi', [UjikomController::class, 'hitung'])->name('landing.ujikom.hitung');

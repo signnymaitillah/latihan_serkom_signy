@@ -11,23 +11,20 @@ class SiswaController extends Controller
 {
     public function index(Request $request)
     {
-       
         $search = $request->search;
-       
-        if ($search) {
-            $siswas = Siswa::where('nama_siswa', 'like', '%' . $search . '%')
-                ->orWhere('nisn', 'like', '%' . $search . '%')
-                ->orWhere('jenis_kelamin', 'like', "%{$search}%")
-                ->get();
-        } else {
-            $siswas = Siswa::all();
-        }
-    {
-    $siswas = Siswa::orderBy('nama_siswa', 'asc')->get();
+        $query = Siswa::orderBy('nama_siswa', 'asc');
 
-    return view('siswa.index', compact('siswas'));
-    }
-        
+        if ($search) {
+            $query->where(function($q) use ($search) {
+                $q->where('nama_siswa', 'like', '%' . $search . '%')
+                  ->orWhere('nisn', 'like', '%' . $search . '%')
+                  ->orWhere('jenis_kelamin', 'like', '%' . $search . '%')
+                  ->orWhere('tahun_masuk', 'like', '%' . $search . '%');
+            });
+        }
+
+        $siswas = $query->get();
+
         return view('siswa.index', compact('siswas'));
     }
 
@@ -38,7 +35,6 @@ class SiswaController extends Controller
 
     public function store(Request $request)
     {
-        
         $request->validate([
             'nisn' => 'required|unique:siswas,nisn|max:10',
             'nama_siswa' => 'required|max:40',
@@ -51,10 +47,8 @@ class SiswaController extends Controller
         $siswa->nama_siswa = $request->nama_siswa;
         $siswa->jenis_kelamin = $request->jenis_kelamin;
         $siswa->tahun_masuk = $request->tahun_masuk;
-
         $siswa->save();
 
-       
         return redirect()
             ->route('siswa.index')
             ->with('success', 'Data siswa berhasil ditambahkan');
@@ -101,7 +95,6 @@ class SiswaController extends Controller
             'tahun_masuk' => 'required|digits:4',
         ]);
 
-      
         $siswa = Siswa::findOrFail($id);
         $siswa->nisn = $request->nisn;
         $siswa->nama_siswa = $request->nama_siswa;

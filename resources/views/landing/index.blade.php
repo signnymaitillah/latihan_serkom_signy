@@ -48,19 +48,23 @@
             <div class="row align-items-center g-4">
                 <div class="col-md-5 text-center">
                     <div class="p-3 bg-white rounded shadow-sm border border-primary border-opacity-25">
-                        <img src="{{ asset('assets/images/kepala.jpg') }}" class="img-fluid rounded" alt="Kepala Sekolah">
+                        <img src="{{ asset('assets/images/kepalasekolah.png') }}" class="img-fluid rounded" alt="Kepala Sekolah">
                         <h5 class="fw-bold text-school mt-3 mb-1">Drs. Jamaludin Malik, M.M</h5>
                         <span class="badge bg-primary rounded-pill">Kepala SMPN 1 Singaparna</span>
                     </div>
                 </div>
                 <div class="col-md-7">
-                    <h6 class="text-primary fw-bold text-uppercase">Sambutan Kepala Sekolah</h6>
-                    <h2 class="fw-bold text-school mb-3">Selamat Datang di Portal Resmi Website Sekolah</h2>
+                    <!-- <h6 class="text-primary fw-bold text-uppercase">Sambutan Kepala Sekolah</h6> -->
+                    <h2 class="fw-bold text-school mb-3">Sambutan Kepala Sekolah</h2>
+                    <h3 class="fw-bold mb-3">Drs. Jamaludin Malik, M.M</h3>
                     <p class="text-secondary mb-3">
-                        Puji dan syukur marilah kita panjatkan ke hadirat Allah SWT. Website ini dirancang sebagai sarana komunikasi dan informasi publik antara sekolah, siswa, orang tua, serta masyarakat.
+                      Assalamualaikum warahmatullahi wabarakatuh,
+                    </p>
+                    <p class="text-secondary mb-3">
+                        Puji syukur kita panjatkan ke hadirat Allah SWT, Tuhan Yang Maha Esa, karena atas rahmat dan karunia-Nya, kita dapat berkumpul di sini dalam rangka peluncuran website resmi sekolah kita.
                     </p>
                     <p class="text-secondary">
-                        SMPN 1 Singaparna terus berbenah dan beradaptasi dengan perkembangan teknologi informasi demi memberikan pelayanan pendidikan terbaik dan memfasilitasi potensi seluruh peserta didik secara optimal.
+                        Di era digital seperti sekarang, teknologi memiliki peran yang sangat penting dalam dunia pendidikan. Website sekolah ini dibuat sebagai sarana informasi dan komunikasi yang lebih efektif bagi seluruh warga sekolah. Dengan adanya website ini, diharapkan siswa, orang tua, guru, dan masyarakat luas dapat dengan mudah mengakses berbagai informasi terkait kegiatan akademik, pengumuman, prestasi, serta berbagai program sekolah.
                     </p>
                 </div>
             </div>

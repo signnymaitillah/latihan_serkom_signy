@@ -10,7 +10,6 @@
     </div>
 
     @php
-        // Ambil variabel $ekstrakulikuler dari Controller secara konsisten
         $dataEkskul = $ekstrakulikuler ?? $ekskuls ?? \App\Models\Ekstrakulikuler::all();
     @endphp
 
@@ -19,7 +18,6 @@
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="card h-100 border-0 shadow-sm text-center p-2 rounded-3 d-flex flex-column justify-content-between">
                     <div>
-                        {{-- Foto --}}
                         <div class="rounded-3 overflow-hidden bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
                             @if(!empty($ekskul->gambar) && file_exists(public_path('uploads/ekskul/' . $ekskul->gambar)))
                                 <img src="{{ asset('uploads/ekskul/' . $ekskul->gambar) }}" 
@@ -41,7 +39,6 @@
                     </div>
 
                     <div class="p-3 pt-0">
-                        {{-- KODE DIBETULKAN: Menggunakan $ekskul->id_eskul sesuai Model --}}
                         <a href="{{ route('landing.ekskul.show', $ekskul->id_eskul ?? $ekskul->getKey()) }}" class="btn btn-outline-primary btn-sm w-100 rounded-pill">
                             Detail Selengkapnya <i class="fa-solid fa-arrow-right ms-1"></i>
                         </a>

@@ -12,8 +12,7 @@
         :root { --primary-blue: #0d47a1; }
         .bg-school { background-color: var(--primary-blue); }
         .text-school { color: var(--primary-blue); }
-        
-        /* Footer Links Style */
+
         .footer-link {
             color: rgba(255, 255, 255, 0.75);
             text-decoration: none;
@@ -75,7 +74,15 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('galeri-sekolah*') ? 'text-white fw-bold active' : 'text-white-50' }}" href="{{ route('landing.galeri') }}">Galeri</a>
                     </li>
-                </ul>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('login*') ? 'text-white fw-bold active' : 'text-white-50' }}" href="{{ route('login') }}">Login</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('landing.ujikom') ? 'active' : '' }}" href="{{ route('landing.ujikom') }}">Ujikom</a>
+                    </li>
+                    </ul>
             </div>
         </div>
     </nav>
@@ -105,8 +112,8 @@
                         <li class="mb-2"><a href="{{ url('/guru-staf') }}" class="footer-link"><i class="fa-solid fa-angle-right me-1 small"></i> Guru & Staf</a></li>
                         <li class="mb-2"><a href="{{ url('/ekstrakulikuler-sekolah') }}" class="footer-link"><i class="fa-solid fa-angle-right me-1 small"></i> Ekstrakurikuler</a></li>
                         <li class="mb-2"><a href="{{ url('/berita-sekolah') }}" class="footer-link"><i class="fa-solid fa-angle-right me-1 small"></i> Berita</a></li>
-                        {{-- Link Galeri di Footer --}}
                         <li class="mb-2"><a href="{{ route('landing.galeri') }}" class="footer-link"><i class="fa-solid fa-angle-right me-1 small"></i> Galeri</a></li>
+                        
                     </ul>
                 </div>
 
@@ -120,10 +127,6 @@
                         <li class="mb-2 d-flex align-items-center">
                             <i class="fa-solid fa-phone me-2 text-white"></i>
                             <span>(0265) 541000</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fa-solid fa-envelope me-2 text-white"></i>
-                            <span>info@smpn1singaparna.sch.id</span>
                         </li>
                     </ul>
                 </div>

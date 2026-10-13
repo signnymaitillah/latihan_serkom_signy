@@ -41,8 +41,7 @@ class BeritaController extends Controller
             'isi'     => 'required',
             'tanggal' => 'required|date',
             'status'  => 'required|in:draf,publis',
-            'gambar'  => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
-            'slug'  => 'required|unique:beritas,slug',
+            'gambar'  => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 
         $namaGambar = null;

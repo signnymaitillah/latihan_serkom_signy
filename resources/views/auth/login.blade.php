@@ -36,7 +36,6 @@
 
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <!-- Ditambahkan old('username') agar teks tidak hilang saat salah login -->
                     <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" placeholder="masukkan username..." required autofocus>
                 </div>
 

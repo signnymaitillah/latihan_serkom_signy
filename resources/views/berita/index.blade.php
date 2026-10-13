@@ -68,7 +68,6 @@
 
                                 <h4 class="card-title fw-bold text-dark mb-2">{{ $item->judul }}</h4>
                                 
-                                {{-- KODE YANG DITAMBAHKAN UNTUK MENAMPILKAN ISI BERITA --}}
                                 <p class="card-text text-muted mb-3">
                                     {!! Str::limit(strip_tags($item->isi), 150, '...') !!}
                                 </p>
